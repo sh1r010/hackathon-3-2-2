@@ -1,0 +1,597 @@
+/* ============================================================
+   S7 Kursk — клиника эстетической медицины
+   Стили блоков «Оборудование» и «Footer» — 1:1 с оригиналом s7-kursk.ru
+   + общая база (reset, переменные, контейнер)
+   ============================================================ */
+
+/* ---------- 1. Переменные ---------- */
+
+:root {
+    /* Цвета — снято с оригинала */
+    --color-bg:           #ffffff;
+    --color-text:         #000000;
+    --color-text-muted:   #4a4a4a;
+    --color-link:         #0a00ff;          /* синие ссылки парковок */
+    --color-footer-bg:    #2c2a29;          /* основной тон тёмного футера */
+    --color-footer-text:  #ffffff;
+    --color-footer-muted: rgba(255,255,255,.7);
+    --color-footer-divider:rgba(255,255,255,.15);
+
+    /* Типографика — две гарнитуры, как в Tilda
+       serif: Cormorant для заголовков
+       body: Manrope как замена тильдовского "Mediator" — оба
+       гуманистические гротески с похожими пропорциями */
+    --font-serif:  'Cormorant', 'Times New Roman', Times, serif;
+    --font-body:   'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans:   'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Размеры */
+    --container-max: 1200px;
+    --container-pad: 20px;
+
+    /* Анимации */
+    --ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; transition: color .2s var(--ease); }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, h4 { margin: 0; }
+p { margin: 0 0 1em; }
+ul { list-style: none; padding: 0; margin: 0; }
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+}
+
+/* ----- Появление контента при скролле (как у Tilda) ----- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity .9s var(--ease),
+        transform .9s var(--ease);
+    will-change: opacity, transform;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Если JS не загрузился — показываем сразу */
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* Заглушки для блоков команды */
+.placeholder {
+    padding: 80px 0;
+    border-top: 1px dashed #e3e3e3;
+    border-bottom: 1px dashed #e3e3e3;
+    background: #fafafa;
+}
+.placeholder__label {
+    margin: 0;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Шапка-плейсхолдер — стилизована под s7-kursk.ru */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    gap: 24px;
+}
+
+/* «Версия для слабовидящих» */
+.site-header__access {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #161616;
+    line-height: 1.2;
+}
+.site-header__access svg { flex-shrink: 0; }
+.site-header__access span { max-width: 110px; }
+.site-header__access:hover { color: #555; }
+
+/* Главное меню */
+.site-header__nav {
+    display: flex;
+    gap: 40px;
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: #161616;
+}
+.site-header__nav a {
+    white-space: nowrap;
+}
+.site-header__nav a:hover { color: #555; }
+
+/* Телефон + адрес справа */
+.site-header__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    line-height: 1.3;
+    flex-shrink: 0;
+}
+.site-header__phone {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    color: #161616;
+    white-space: nowrap;
+}
+.site-header__phone:hover { color: #555; }
+.site-header__address {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    color: #161616;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+
+/* ============================================================
+   БЛОК «ОБОРУДОВАНИЕ» — 1:1 с s7-kursk.ru
+   ============================================================ */
+
+.equipment {
+    background: #fff;
+    padding: 75px 0 30px;
+}
+
+/* Шапка блока: заголовок + интро */
+.equipment__head {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.equipment__title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 1.23;
+    color: #000;
+    margin: 0 0 28px;
+}
+
+.equipment__intro {
+    font-family: var(--font-body);
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 300;
+    color: #000;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* Список карточек — обёртка, к которой применяется сворачивание */
+.equipment__list {
+    margin-top: 30px;
+}
+
+/* Карточка — две колонки 50/50, чередование */
+.equipment__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+.equipment__card--reverse .equipment__card-text { order: 2; }
+.equipment__card--reverse .equipment__card-media { order: 1; }
+
+.equipment__card-text {
+    padding: 0 20px;
+    /* Ширина текстовой колонки — как в оригинале (~520-540px). */
+    max-width: 520px;
+    width: 100%;
+    justify-self: end;
+}
+.equipment__card--reverse .equipment__card-text {
+    justify-self: start;
+}
+
+.equipment__card-media {
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.equipment__card--reverse .equipment__card-media {
+    justify-content: flex-end;
+}
+
+.equipment__card-media img {
+    /* Картинка крупная, как в оригинале — занимает почти всю
+       свою колонку, сохраняя естественные пропорции. */
+    width: 100%;
+    max-width: 540px;
+    max-height: 600px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.equipment__card-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.23;
+    color: #000;
+    margin: 0 0 18px;
+}
+
+.equipment__card-text p {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 27.9px;
+    font-weight: 300;
+    color: #000;
+    margin: 0 0 8px;
+}
+/* Визуальный «воздух» между группами абзацев — как в оригинале */
+.equipment__card-text .equipment__spacer {
+    height: 22px;
+    margin: 0;
+    padding: 0;
+}
+.equipment__card-text p:last-child { margin-bottom: 0; }
+
+.equipment__card-text strong { font-weight: 700; }
+
+/* ----- Per-card сворачивание -----
+   Каждая карточка имеет свой lead-параграф (виден всегда) и
+   скрытый блок .equipment__card-more, который раскрывается
+   своей кнопкой «Подробнее». */
+.equipment__card-lead {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 27.9px;
+    font-weight: 400;
+    color: #000;
+    margin: 0 0 14px;
+}
+
+.equipment__card-more {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    overflow-anchor: none;
+    transition:
+        max-height .7s cubic-bezier(.65, 0, .35, 1),
+        opacity .5s ease-in-out;
+}
+.equipment__card-text.is-expanded .equipment__card-more {
+    opacity: 1;
+}
+.equipment__list--expanded .equipment__collapsible {
+    opacity: 1;
+}
+
+/* Per-card кнопка «Подробнее / Скрыть» — компактная, в стиле Tilda */
+.equipment__card-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 10px 24px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #000;
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    transition:
+        background-color .25s var(--ease),
+        color .25s var(--ease);
+}
+.equipment__card-toggle:hover {
+    background: #000;
+    color: #fff;
+}
+.equipment__card-toggle:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 3px;
+}
+.equipment__card-toggle-icon {
+    transition: transform .35s var(--ease);
+}
+.equipment__card-toggle[aria-expanded="true"] .equipment__card-toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Если JS не загрузился — раскрываем сразу */
+.no-js .equipment__collapsible { max-height: none; opacity: 1; }
+.no-js .equipment__toggle-wrap { display: none; }
+
+/* ============================================================
+   FOOTER — 1:1 с s7-kursk.ru
+   ============================================================ */
+
+.footer {
+    background: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* ----- Уровень 1: контакты + карта ----- */
+.footer__row-contacts {
+    padding: 60px 0 40px;
+}
+.footer__row-contacts .container {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.footer__col-title {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0 0 24px;
+}
+
+.footer__phones {
+    margin: 0 0 24px;
+    font-size: 16px;
+    color: #fff;
+}
+.footer__phones a {
+    display: block;
+    color: #fff;
+    line-height: 1.5;
+}
+.footer__phones a:hover { color: var(--color-footer-muted); }
+
+.footer__address {
+    font-style: normal;
+    color: #fff;
+    margin: 0 0 20px;
+}
+.footer__address p { margin: 0 0 14px; }
+
+.footer__parking {
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.footer__parking a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+.footer__parking a:hover { text-decoration: underline; }
+
+.footer__legal-info {
+    color: #fff;
+    margin: 0 0 24px;
+    line-height: 1.6;
+}
+.footer__legal-info p { margin: 0 0 16px; }
+.footer__legal-info .footer__codes {
+    line-height: 1.5;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+.footer__socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    transition: opacity .2s var(--ease);
+}
+.footer__socials a:hover { opacity: .7; }
+
+/* Карта */
+.footer__map {
+    width: 100%;
+    height: 380px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #d8d8d8;
+}
+.footer__map iframe,
+.footer__map img {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    object-fit: cover;
+}
+
+/* ----- Уровень 2: навигация + логотип + лицензия ----- */
+.footer__row-meta {
+    padding: 30px 0 50px;
+    text-align: center;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 40px;
+    margin: 0 0 40px;
+    font-size: 16px;
+}
+.footer__nav a {
+    color: #fff;
+}
+.footer__nav a:hover { color: var(--color-footer-muted); }
+
+.footer__brand {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 120px;
+    line-height: 1;
+    color: #fff;
+    margin: 30px 0 36px;
+    letter-spacing: -0.02em;
+}
+
+.footer__license {
+    max-width: 980px;
+    margin: 0 auto 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.footer__disclaimer-block {
+    max-width: 1080px;
+    margin: 0 auto 24px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-footer-muted);
+}
+.footer__disclaimer-block p { margin: 0 0 12px; }
+
+.footer__warning {
+    font-size: 13px;
+    color: var(--color-footer-muted);
+    margin: 0;
+}
+
+/* ============================================================
+   АДАПТИВ — mobile ≤ 768px
+   ============================================================ */
+
+/* Плотный хедер на узком десктопе: уменьшаем шрифты и отступы,
+   чтобы меню и контакты не уезжали и не обрезались. */
+@media (max-width: 1200px) {
+    .site-header__inner { gap: 16px; }
+    .site-header__nav { gap: 24px; font-size: 17px; }
+    .site-header__phone { font-size: 17px; }
+    .site-header__address { font-size: 12px; }
+}
+
+@media (max-width: 1024px) {
+    .equipment__title { font-size: 40px; }
+    .equipment__card { gap: 24px; }
+    .footer__row-contacts .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer__map { height: 320px; }
+
+    /* Хедер: ещё компактнее, скрываем текст «версия для слабовидящих» */
+    .site-header__access span { display: none; }
+    .site-header__nav { gap: 18px; font-size: 15px; }
+    .site-header__phone { font-size: 15px; }
+}
+
+@media (max-width: 768px) {
+
+    :root { --container-pad: 16px; }
+
+    /* Шапка — мобильная */
+    .site-header__nav { display: none; }
+    .site-header__access span { display: none; }
+    .site-header__inner { height: 64px; gap: 12px; }
+    .site-header__phone { font-size: 15px; }
+    .site-header__address { font-size: 11px; }
+
+    /* Оборудование */
+    .equipment {
+        padding: 50px 0 20px;
+    }
+    .equipment__title {
+        font-size: 34px;
+        margin-bottom: 20px;
+    }
+    .equipment__intro { font-size: 15px; }
+
+    .equipment__card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 0;
+    }
+    /* На мобиле картинка всегда сверху, текст под ней — отменяем reverse */
+    .equipment__card--reverse .equipment__card-text { order: 2; }
+    .equipment__card--reverse .equipment__card-media { order: 1; }
+    .equipment__card .equipment__card-text { order: 2; }
+    .equipment__card .equipment__card-media { order: 1; }
+
+    .equipment__card-text,
+    .equipment__card-media { padding: 0; }
+
+    .equipment__card-title { font-size: 22px; }
+
+    .equipment__toggle-wrap { margin-top: 28px; }
+    .equipment__toggle { width: 100%; justify-content: center; }
+
+    /* Footer */
+    .footer__row-contacts {
+        padding: 40px 0 24px;
+    }
+    .footer__col-title { font-size: 24px; margin-bottom: 18px; }
+    .footer__map { height: 260px; }
+
+    .footer__row-meta {
+        padding: 24px 0 40px;
+    }
+    .footer__nav {
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 28px;
+        font-size: 15px;
+    }
+    .footer__brand {
+        font-size: 80px;
+        margin: 16px 0 24px;
+    }
+    .footer__license,
+    .footer__disclaimer-block { font-size: 12px; padding: 0 4px; }
+}
