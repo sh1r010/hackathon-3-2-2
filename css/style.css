@@ -1,0 +1,629 @@
+/* ============================================================
+   S7 Clinic — Hackathon TildaMigration
+   Стили блока «Услуги и цены» + минимальные глобальные стили
+   Методология: БЭМ
+   Брейкпоинты:
+     desktop ≥ 1024px (вертикальный список категорий)
+     mobile  < 1024px (горизонтальный слайдер, 1 категория = 1 слайд)
+   ============================================================ */
+
+/* ---------- 1. Глобальный reset и переменные ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Палитра — взята с оригинального сайта */
+  --color-bg-page: #ffffff;
+  --color-bg-services: #ece4d7;
+  --color-bg-services-soft: #eee2dd;
+  --color-text: #2c2a29;
+  --color-text-soft: rgba(44, 42, 41, 0.7);
+  --color-accent: #ff8562;
+  --color-accent-hover: #e56a48;
+  --color-divider: rgba(44, 42, 41, 0.12);
+  --color-divider-soft: rgba(44, 42, 41, 0.08);
+
+  /* Типографика */
+  --font-display: 'Cormorant', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Размеры */
+  --container-max: 1280px;
+  --container-padding: 24px;
+  --radius: 0;
+  --shadow-soft: 0 4px 24px rgba(44, 42, 41, 0.06);
+
+  /* Тайминги */
+  --t-fast: 0.18s ease;
+  --t-base: 0.28s ease;
+  --t-slow: 0.45s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 2. Заглушка: шапка и подвал ---------- */
+/* (сокурсники заменят на полноценные блоки) */
+
+.placeholder {
+  padding: 48px 24px;
+  background: #f7f5f1;
+  color: var(--color-text-soft);
+  text-align: center;
+  border-bottom: 1px dashed var(--color-divider);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.placeholder--dark {
+  background: #2c2a29;
+  color: #d8d3cc;
+  border-bottom: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================================
+   3. БЛОК «УСЛУГИ» — ОСНОВНАЯ ЧАСТЬ
+   ============================================================ */
+
+.services {
+  background-color: var(--color-bg-services);
+  padding: 64px 0;
+}
+
+.services__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Заголовок */
+.services__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+
+/* Подзаголовок-курсив + декоративная линия точно по ширине подзаголовка */
+.services__title-block {
+  width: fit-content;
+  margin: 0 auto 36px;
+}
+
+.services__subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  color: rgba(44, 42, 41, 0.7);
+  margin: 0;
+}
+
+.services__title-divider {
+  width: 100%;          /* = ширине .services__subtitle */
+  height: 1px;
+  background: var(--color-accent);
+  border: none;
+  margin: 8px 0 0;
+}
+
+/* ---------- Layout: desktop = 2 колонки, mobile = 1 ---------- */
+
+.services__layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ---------- 4. Список категорий (sidebar на desktop) ---------- */
+/* По ТЗ: «все категории видны». Без sticky, без overflow —
+   просто вертикальный список во всю высоту. */
+
+.services__nav-list {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--color-divider);
+}
+
+.services__nav-item {
+  display: block;
+}
+
+.services__tab {
+  display: block;
+  width: 100%;
+  padding: 7px 18px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  cursor: pointer;
+  letter-spacing: 0.005em;
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background-color var(--t-fast),
+    padding-left var(--t-fast);
+}
+
+.services__tab:hover {
+  color: var(--color-accent);
+  background-color: rgba(255, 133, 98, 0.04);
+}
+
+.services__tab:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.services__tab--active {
+  color: var(--color-accent);
+  font-weight: 500;
+  border-left-color: var(--color-accent);
+  background-color: rgba(255, 133, 98, 0.06);
+  padding-left: 22px;
+}
+
+/* ---------- 5. Зона просмотра (правая колонка / слайдер) ---------- */
+
+.services__viewer {
+  position: relative;
+  min-height: 400px;
+}
+
+/* Контейнер панелей */
+.services__panels {
+  position: relative;
+}
+
+/* Одна панель — одна категория */
+.services__panel {
+  display: none;
+  animation: services-fade-in var(--t-slow) both;
+}
+
+.services__panel--active {
+  display: block;
+}
+
+@keyframes services-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.services__panel-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 28px;
+  padding-bottom: 14px;
+  color: var(--color-text);
+  letter-spacing: 0.005em;
+  width: fit-content;       /* линия снизу = ширине заголовка */
+  position: relative;
+}
+
+.services__panel-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-accent);
+}
+
+.services__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.services__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-divider-soft);
+  font-size: 15px;
+  line-height: 1.45;
+  transition: padding-left var(--t-fast);
+}
+
+.services__item:hover {
+  padding-left: 8px;
+}
+
+.services__item:last-child {
+  border-bottom: none;
+}
+
+.services__item-name {
+  color: var(--color-text);
+  flex: 1;
+  /* Слегка прижимаем длинные названия к точке-разделителю */
+}
+
+.services__item-price {
+  font-weight: 500;
+  color: var(--color-accent);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 6. Стрелки навигации (только mobile) ---------- */
+
+.services__arrow {
+  display: none;            /* по умолчанию скрыто — desktop */
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--color-divider);
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 50%;
+  transition:
+    color var(--t-fast),
+    border-color var(--t-fast),
+    background-color var(--t-fast),
+    transform var(--t-fast);
+}
+
+.services__arrow:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: rgba(255, 133, 98, 0.06);
+}
+
+.services__arrow:active {
+  transform: scale(0.94);
+}
+
+.services__arrow:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.services__arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.services__arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+/* Подпись с текущей категорией над панелью (только mobile) */
+.services__mobile-bar {
+  display: none;
+}
+
+/* ============================================================
+   9. БЛОК «О ЦЕНТРЕ»
+   Структура: заголовок → фото → вводный абзац (lead) →
+   основной текст из нескольких параграфов.
+   ============================================================ */
+
+.about {
+  background-color: var(--color-bg-page);
+  padding: 80px 0;
+}
+
+.about__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.about__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 40px;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+
+/* Фото — крупное, центрировано */
+.about__media {
+  margin: 0 0 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.about__image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Вводный абзац — серифом, курсивом, с вертикальной оранжевой линией слева
+   (типографический приём «цитата-эпиграф») */
+.about__lead {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.55;
+  font-weight: 400;
+  font-style: italic;
+  text-align: left;
+  border-left: 2px solid var(--color-accent);
+  padding: 4px 0 4px 28px;
+  max-width: 760px;
+  margin: 0 auto 48px;
+  color: var(--color-text);
+}
+
+/* Основной текст — несколько параграфов, по левому краю */
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.about__text p {
+  margin: 0;
+  text-align: left;
+}
+
+/* Дроп-кап (буквица) в первом параграфе основного текста */
+.about__text p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-size: 5.2em;
+  line-height: 0.85;
+  float: left;
+  padding: 6px 12px 0 0;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* ============================================================
+   7. АДАПТИВ — точка разрыва 1024px
+   Меньше 1024px — мобильная версия (слайдер)
+   ============================================================ */
+
+@media (max-width: 1023px) {
+  .services {
+    padding: 56px 0;
+  }
+
+  .services__title {
+    margin-bottom: 32px;
+  }
+
+  /* Layout превращается в одну колонку */
+  .services__layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Прячем десктопный список категорий */
+  .services__nav {
+    display: none;
+  }
+
+  /* Мобильная панель навигации между слайдами */
+  .services__mobile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-divider);
+    margin-bottom: 24px;
+  }
+
+  .services__mobile-counter {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-soft);
+    /* Подпись «Категория 5 из 26» — но по ТЗ номера и точки запрещены.
+       Используем только название текущей категории, без счётчика. */
+  }
+
+  .services__mobile-category {
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  /* Показываем стрелки */
+  .services__arrow {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  /* Панели — теперь полноширинные карточки */
+  .services__viewer {
+    min-height: auto;
+  }
+
+  .services__panel {
+    background: var(--color-bg-services-soft);
+    padding: 24px 20px;
+  }
+
+  .services__panel-title {
+    text-align: center;
+    margin-left: auto;     /* центрируем блок с width:fit-content */
+    margin-right: auto;
+    margin-bottom: 24px;
+  }
+
+  .services__item {
+    padding: 14px 0;
+    font-size: 14px;
+    gap: 16px;
+  }
+
+  /* На мобиле тач-устройств hover-эффекта не делаем */
+  .services__item:hover {
+    padding-left: 0;
+  }
+
+  /* ---------- Блок «О Центре» на мобиле ---------- */
+  .about {
+    padding: 48px 0;
+  }
+
+  .about__title {
+    margin-bottom: 24px;
+  }
+
+  .about__media {
+    margin-bottom: 28px;
+  }
+
+  .about__lead {
+    padding-left: 20px;
+    margin-bottom: 32px;
+  }
+
+  .about__text {
+    font-size: 14.5px;
+    line-height: 1.65;
+    gap: 14px;
+  }
+
+  /* Дроп-кап чуть меньше */
+  .about__text p:first-child::first-letter {
+    font-size: 4.6em;
+    padding: 4px 10px 0 0;
+  }
+}
+
+/* Узкие мобильные — компактнее */
+@media (max-width: 480px) {
+  .services {
+    padding: 40px 0;
+  }
+
+  .services__container {
+    padding: 0 16px;
+  }
+
+  .services__panel {
+    padding: 20px 16px;
+  }
+
+  .services__item {
+    font-size: 13.5px;
+    padding: 12px 0;
+  }
+
+  .services__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* «О Центре» на узких экранах */
+  .about {
+    padding: 36px 0;
+  }
+
+  .about__container {
+    padding: 0 16px;
+  }
+
+  .about__lead {
+    font-size: 17px;
+  }
+
+  .about__text {
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   8. Доступность: убираем анимации, если пользователь просит
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

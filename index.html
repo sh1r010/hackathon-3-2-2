@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Клиника эстетической косметологии «Студия 7» — услуги и цены</title>
+  <meta name="description" content="Клиника эстетической медицины Студия 7 в Курске. Полный спектр косметологических услуг и цен на них.">
+
+  <!-- Шрифты: Inter (текст) + Cormorant (заголовки, как на оригинале) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap&subset=cyrillic,latin" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--
+    ========================================================
+      ЗАГЛУШКИ для блоков, которые делают сокурсники
+      (header, hero, о центре, врачи и т.д.)
+      Финальная версия — заменить на готовые блоки.
+    ========================================================
+  -->
+  <header class="placeholder">[ Шапка сайта — отдельный блок ]</header>
+  <section class="placeholder">[ Hero-блок с видео ]</section>
+  <section class="placeholder">[ Преимущества клиники ]</section>
+
+  <!--
+    ========================================================
+      БЛОК «О ЦЕНТРЕ»
+      Текст и фото — с оригинального сайта.
+      ТЗ отдельных требований не предъявляет — верстаем
+      по референсу с учётом общих правил (БЭМ, Inter, адаптив).
+    ========================================================
+  -->
+  <section class="about" id="about" aria-labelledby="about-title">
+    <div class="about__container">
+
+      <h2 class="about__title" id="about-title">О Центре</h2>
+
+      <figure class="about__media">
+        <img
+          class="about__image"
+          src="assets/images/clinic-interior.webp"
+          alt="Интерьер клиники Студия 7: ресепшн с люстрой"
+          loading="lazy"
+          width="1600"
+          height="1067"
+        >
+      </figure>
+
+      <p class="about__lead">
+        Широкий спектр эстетических, инъекционных и&nbsp;нитевых методик
+        позволяет эффективно и&nbsp;безопасно справляться с&nbsp;самими
+        сложными и&nbsp;нестандартными задачами, а&nbsp;также поддерживать
+        Ваши молодость и&nbsp;природную красоту.
+      </p>
+
+      <div class="about__text">
+        <p>В&nbsp;самом центре города Курск располагается современная клиника
+          косметологии «Студия 7», которая предлагает широкий спектр услуг
+          для улучшения красоты и&nbsp;здоровья кожи. Наша клиника объединяет
+          в&nbsp;себе опытных косметологов, применение передовых технологий
+          и&nbsp;инновационных методик, чтобы удовлетворить потребности
+          каждого клиента.</p>
+
+        <p>Мы&nbsp;оказываем полный спектр косметологических процедур, начиная
+          от&nbsp;базовых процедур по&nbsp;уходу за&nbsp;кожей лица и&nbsp;тела,
+          и&nbsp;заканчивая продвинутыми методиками и&nbsp;операциями
+          восстановления и&nbsp;омоложения. Каждый клиент может рассчитывать
+          на&nbsp;индивидуальный подход и&nbsp;оптимальное решение своих
+          проблем. Наша команда профессиональных косметологов с&nbsp;медицинским
+          образованием всегда готова выслушать все желания клиента
+          и&nbsp;предложить наиболее эффективные методы для их&nbsp;реализации.</p>
+
+        <p>Врачи и&nbsp;медсестры нашего центра регулярно повышают уровень
+          квалификации, ведут активную научную и&nbsp;практическую деятельность
+          для того чтобы предлагать только самые актуальные методы
+          и&nbsp;быть в&nbsp;тренде косметологических тенденций,
+          а&nbsp;приветливый персонал создаст для Вас максимально
+          комфортную и&nbsp;уютную атмосферу, чтобы Вы&nbsp;возвращались
+          к&nbsp;нам снова и&nbsp;снова.</p>
+
+        <p>Современное оборудование и&nbsp;средства, использованные
+          в&nbsp;нашей клинике, соответствуют самым высоким мировым стандартам
+          качества и&nbsp;безопасности. Мы&nbsp;постоянно следим
+          за&nbsp;последними тенденциями в&nbsp;области косметологии
+          и&nbsp;используем только проверенные и&nbsp;сертифицированные
+          товары, чтобы обеспечить нашим клиентам максимальную безопасность
+          и&nbsp;эффективность процедур.</p>
+
+        <p>Клиника косметологии «Студия 7» в&nbsp;Курске приветствует всех,
+          кто стремится к&nbsp;достижению идеального состояния кожи, внешней
+          красоты и&nbsp;уверенности в&nbsp;себе. Мы&nbsp;готовы помочь Вам
+          достичь желаемого результата и&nbsp;наслаждаться своей собственной
+          уникальной красотой. Запишитесь на&nbsp;консультацию уже сегодня
+          и&nbsp;узнайте, как мы&nbsp;можем помочь вам стать лучше
+          и&nbsp;красивее. Ждем вас в&nbsp;клинике косметологии по&nbsp;адресу:
+          г.&nbsp;Курск, улица Радищева 110, 5 этаж.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!--
+    ========================================================
+      БЛОК «УСЛУГИ И ЦЕНЫ» — ОСНОВНАЯ ЗАДАЧА ХАКАТОНА
+    ========================================================
+  -->
+  <main>
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="services__container">
+
+        <h2 class="services__title" id="services-title">Услуги и цены</h2>
+        <div class="services__title-block">
+          <p class="services__subtitle">более 200 процедур в одном центре</p>
+          <hr class="services__title-divider" aria-hidden="true">
+        </div>
+
+        <div class="services__layout">
+
+          <!-- Sidebar: вертикальный список категорий (видим на desktop) -->
+          <nav class="services__nav" aria-label="Категории услуг">
+            <ul class="services__nav-list" role="tablist">
+        <li class="services__nav-item">
+          <button type="button" class="services__tab services__tab--active" data-category="cat-1" aria-selected="true">Диагностика специалиста</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-2" aria-selected="false">Ботулинотерапия</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-3" aria-selected="false">Биоревитализация / Биорепарация</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-4" aria-selected="false">Аппаратные услуги косметолога-эстетиста</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-5" aria-selected="false">Коллагенотерапия</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-6" aria-selected="false">Контурная пластика</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-7" aria-selected="false">Лазерная шлифовка растяжек CO2 Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-8" aria-selected="false">Лазерная шлифовка CO2 Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-9" aria-selected="false">Нитевой лифтинг</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-10" aria-selected="false">Профессиональная чистка лица (косметолог-эстетист)</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-11" aria-selected="false">Лазерный «душ» CO2 Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-12" aria-selected="false">Лазерная эпиляция Capello Diode</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-13" aria-selected="false">Массажные комплексы</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-14" aria-selected="false">Мезотерапия</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-15" aria-selected="false">SMAS-лифтинг ULTRAFORMER 3</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-16" aria-selected="false">Химический пилинг (косметолог-эстетист)</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-17" aria-selected="false">Профессиональная чистка лица (врач дерматолог-косметолог)</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-18" aria-selected="false">Микроигольчатый RF-лифтинг VIRTUE</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-19" aria-selected="false">Удаление сосудистых дефектов (IPL-система) Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-20" aria-selected="false">Фотоомоложение (IPL-терапия) Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-21" aria-selected="false">Химический пилинг (врач дерматолог-косметолог)</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-22" aria-selected="false">Удаление гиперпигментации (IPL-система) Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-23" aria-selected="false">Химическая липоредукция</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-24" aria-selected="false">Плазмотерапия</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-25" aria-selected="false">Лазерный пилинг CO2 Capello</button>
+        </li>
+        <li class="services__nav-item">
+          <button type="button" class="services__tab" data-category="cat-26" aria-selected="false">Лазерное удаление папиллом CO2 Capello</button>
+        </li>
+            </ul>
+          </nav>
+
+          <!-- Зона просмотра: панели категорий + мобильная навигация -->
+          <div class="services__viewer">
+
+            <!-- Мобильная панель: стрелки + название текущей категории -->
+            <div class="services__mobile-bar">
+              <button type="button" class="services__arrow services__arrow--prev" aria-label="Предыдущая категория">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <span class="services__mobile-category" aria-live="polite"></span>
+              <button type="button" class="services__arrow services__arrow--next" aria-label="Следующая категория">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Панели — по одной на категорию -->
+            <div class="services__panels">
+        <article class="services__panel services__panel--active" data-category="cat-1">
+          <h3 class="services__panel-title">Диагностика специалиста</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Консультация врача косметолога (без проведения процедуры)</span>
+              <span class="services__item-price">1 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Консультация врача дерматолога</span>
+              <span class="services__item-price">2 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Повторная консультация врача дерматолога</span>
+              <span class="services__item-price">1 500&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-2">
+          <h3 class="services__panel-title">Ботулинотерапия</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Диспорт (1 единица)</span>
+              <span class="services__item-price">140&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ксеомин (1 единица)</span>
+              <span class="services__item-price">320&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Релатокс (1 единица)</span>
+              <span class="services__item-price">320&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечение гипергидроза «Диспорт»</span>
+              <span class="services__item-price">17 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечение гипергидроза «Ксеомин»</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечение гипергидроза «Релатокс»</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-3">
+          <h3 class="services__panel-title">Биоревитализация / Биорепарация</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Femegyl R 1,5 мл</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Femegyl R 3 мл</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Femegyl R (глаза) 0,5 мл</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Filorga NCTF 135 HA 1,5 мл</span>
+              <span class="services__item-price">8 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Filorga NCTF 135 HA 3 мл</span>
+              <span class="services__item-price">12 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Filorga NCTF 135 HA (глаза) 0,5 мл</span>
+              <span class="services__item-price">4 200&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Novacutan Ybio</span>
+              <span class="services__item-price">14 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Novacutan Sbio</span>
+              <span class="services__item-price">14 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Novacutan Ybio + Sbio</span>
+              <span class="services__item-price">26 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">MesoXantin F199</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">MesoWharton P199</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Biogel T Line 2,2 мл</span>
+              <span class="services__item-price">14 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Plinest 2 мл</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">MiraLine Hydro 2 мл</span>
+              <span class="services__item-price">10 600&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Neauvia Hydro Deluxe 2,5 мл</span>
+              <span class="services__item-price">15 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Биоревитализация шеи</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Биоревитализация периорбитальной области</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME DM (глаза) 0,5 мл</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME DM 2,5 мл</span>
+              <span class="services__item-price">8 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME Lifter Light (глаза) 0,5 мл</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME Lifter Light 2,5 мл</span>
+              <span class="services__item-price">8 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME Perfect Face (глаза) 0,5 мл</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME Perfect Face 2,5 мл</span>
+              <span class="services__item-price">9 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME Anti-Dark (глаза) 0,5 мл</span>
+              <span class="services__item-price">3 900&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME Anti-Dark 2,5 мл</span>
+              <span class="services__item-price">8 600&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME 3 Hydrate (глаза) 0,5 мл</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">BIOFRAME 3 Hydrate 2,5 мл</span>
+              <span class="services__item-price">8 500&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-4">
+          <h3 class="services__panel-title">Аппаратные услуги косметолога-эстетиста</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Микротоковая терапия лица</span>
+              <span class="services__item-price">2 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Микротоковая терапия периорбитальной области</span>
+              <span class="services__item-price">1 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">RF-лифтинг лица</span>
+              <span class="services__item-price">3 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">RF-лифтинг лица, шеи и декольте</span>
+              <span class="services__item-price">4 200&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-5">
+          <h3 class="services__panel-title">Коллагенотерапия</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Сферогель Medium 0,5 мл</span>
+              <span class="services__item-price">10 700&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Сферогель Medium 1 мл</span>
+              <span class="services__item-price">17 400&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Сферогель Long Fine 0,5 мл</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Сферогель Body Medium 2 мл</span>
+              <span class="services__item-price">23 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Коллагенотерапия периорбитальной области</span>
+              <span class="services__item-price">10 700&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Radiesse 1,5 мл</span>
+              <span class="services__item-price">28 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Radiesse 1,5 мл Lidocaine</span>
+              <span class="services__item-price">28 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Radiesse 3 мл</span>
+              <span class="services__item-price">38 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Collost micro 50 мг</span>
+              <span class="services__item-price">14 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Collost micro 150 мг</span>
+              <span class="services__item-price">22 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Collost micro 150 мг + Filorga NCTF 135 HA</span>
+              <span class="services__item-price">25 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ellagen 200 мг</span>
+              <span class="services__item-price">28 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ellagen 400 мг</span>
+              <span class="services__item-price">38 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ellagen 1000 мг</span>
+              <span class="services__item-price">60 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ellagen HA 100 мг</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ellagen HA 200 мг</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ellagen HA 300 мг</span>
+              <span class="services__item-price">40 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-6">
+          <h3 class="services__panel-title">Контурная пластика</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">КП губ</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП скуловой области</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП носогубных складок</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП носослёзных борозд</span>
+              <span class="services__item-price">17 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП височной области</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП щёчной области</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП подбородочной области</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП углов нижней челюсти</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП лба</span>
+              <span class="services__item-price">15 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП носа</span>
+              <span class="services__item-price">21 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">КП кистей</span>
+              <span class="services__item-price">16 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Бланширование</span>
+              <span class="services__item-price">19 300&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-7">
+          <h3 class="services__panel-title">Лазерная шлифовка растяжек CO2 Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Грудь</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Плечи</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Живот</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ягодицы</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Бёдра</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-8">
+          <h3 class="services__panel-title">Лазерная шлифовка CO2 Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Веки</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Щёки</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лоб</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Нос</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Подбородок</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо полностью</span>
+              <span class="services__item-price">16 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Рубец до 3 см</span>
+              <span class="services__item-price">6 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Рубец 3–10 см</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Рубец более 10 см</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-9">
+          <h3 class="services__panel-title">Нитевой лифтинг</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Excellence Visage (EV) 10 шт.</span>
+              <span class="services__item-price">48 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Excellence Visage NAMICA (EV N) 10 шт.</span>
+              <span class="services__item-price">53 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Excellence Visage Soft HA (EVS) 10 шт.</span>
+              <span class="services__item-price">37 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Excellence Visage 2 (EV 2)</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Excellence Visage 2 (EV 2) — 2 комплекта</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Light Lift Needle Blunt (600)</span>
+              <span class="services__item-price">50 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-10">
+          <h3 class="services__panel-title">Профессиональная чистка лица (косметолог-эстетист)</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">«Чистая нота» — атравматическая чистка</span>
+              <span class="services__item-price">3 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Синергия чистоты» — гигиеническая чистка</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Профессиональная чистка лица</span>
+              <span class="services__item-price">3 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Чистка спины</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечебный AntiAcne-комплекс «Acnon»</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечебный AntiAcne-комплекс «Lipacid»</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Деликатная чувственность» — уход-программа</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Пробуждение энергии» — уход-программа</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Моментальный эффект» — уход-программа</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Время вспять» — уход-программа</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-11">
+          <h3 class="services__panel-title">Лазерный «душ» CO2 Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Лицо</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Шея</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Зона декольте</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо + шея + декольте</span>
+              <span class="services__item-price">15 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-12">
+          <h3 class="services__panel-title">Лазерная эпиляция Capello Diode</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Малая зона</span>
+              <span class="services__item-price">1 100&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Классическое бикини</span>
+              <span class="services__item-price">1 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Тотальное бикини</span>
+              <span class="services__item-price">2 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Голени</span>
+              <span class="services__item-price">2 200&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Бёдра</span>
+              <span class="services__item-price">2 200&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Ноги полностью</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Все тело BASE (6 зон)</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Все тело TOTAL (7 зон и более)</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-13">
+          <h3 class="services__panel-title">Массажные комплексы</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Лимфодренажный массаж лица</span>
+              <span class="services__item-price">2 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лифтинг-массаж лица</span>
+              <span class="services__item-price">2 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лимфодренажный массаж лица + микротоковая терапия</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лифтинг-массаж лица + RF-лифтинг</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-14">
+          <h3 class="services__panel-title">Мезотерапия</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Мезотерапия лица</span>
+              <span class="services__item-price">2 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Мезотерапия периорбитальной области</span>
+              <span class="services__item-price">2 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Мезотерапия волосистой части головы</span>
+              <span class="services__item-price">3 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">P-Shine (лицо)</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">P-Shine (глаза)</span>
+              <span class="services__item-price">2 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">DM-Lift (лицо)</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Hair X VitaLine B+</span>
+              <span class="services__item-price">3 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Hair Men 1,5 мл</span>
+              <span class="services__item-price">3 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">F-Hair 2 мл</span>
+              <span class="services__item-price">3 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Инъекции кортикостероидов</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-15">
+          <h3 class="services__panel-title">SMAS-лифтинг ULTRAFORMER 3</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Подбородок</span>
+              <span class="services__item-price">18 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Нижнее веко + «маляр» + височная область</span>
+              <span class="services__item-price">18 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Верхняя треть лица полностью</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Подбородок + нижняя треть + брыли</span>
+              <span class="services__item-price">28 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Средняя треть + нижняя треть + подбородок</span>
+              <span class="services__item-price">28 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Шея</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Декольте</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо полностью + подбородок</span>
+              <span class="services__item-price">45 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо полностью + подбородок + шея</span>
+              <span class="services__item-price">50 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо полностью + подбородок + шея + декольте</span>
+              <span class="services__item-price">65 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-16">
+          <h3 class="services__panel-title">Химический пилинг (косметолог-эстетист)</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Пилинг «Essence Peel»</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг «ApplePeel»</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг BioRePeel CL</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Желтый пилинг «BLOCK AGE PEEL»</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг ISecret</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг «Золушки»</span>
+              <span class="services__item-price">5 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-17">
+          <h3 class="services__panel-title">Профессиональная чистка лица (врач дерматолог-косметолог)</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Атравматическая чистка</span>
+              <span class="services__item-price">3 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Гигиеническая чистка</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Гигиеническая чистка + поверхностный пилинг</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечебный AntiAcne-комплекс «Acnon»</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лечебный AntiAcne-комплекс «Lipacid»</span>
+              <span class="services__item-price">3 800&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-18">
+          <h3 class="services__panel-title">Микроигольчатый RF-лифтинг VIRTUE</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Зона орбиты (глаза)</span>
+              <span class="services__item-price">25 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо (+ веки) полностью</span>
+              <span class="services__item-price">35 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область шеи</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область декольте</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо + область шеи</span>
+              <span class="services__item-price">45 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо + область декольте</span>
+              <span class="services__item-price">45 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область шеи + область декольте</span>
+              <span class="services__item-price">45 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо + шея + декольте</span>
+              <span class="services__item-price">55 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область живота</span>
+              <span class="services__item-price">35 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область бёдер</span>
+              <span class="services__item-price">35 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область ягодиц</span>
+              <span class="services__item-price">35 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Тыльная сторона кистей</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область коленей</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Область локтей</span>
+              <span class="services__item-price">30 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-19">
+          <h3 class="services__panel-title">Удаление сосудистых дефектов (IPL-система) Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Один элемент</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Крылья носа</span>
+              <span class="services__item-price">6 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Верхняя треть</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Средняя треть</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Нижняя треть</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Все лицо</span>
+              <span class="services__item-price">14 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-20">
+          <h3 class="services__panel-title">Фотоомоложение (IPL-терапия) Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Фотоомоложение лица</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Фотоомоложение зоны декольте</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Фотоомоложение лицо + шея + декольте</span>
+              <span class="services__item-price">14 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-21">
+          <h3 class="services__panel-title">Химический пилинг (врач дерматолог-косметолог)</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Поверхностный пилинг «Mediderma»</span>
+              <span class="services__item-price">3 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Срединный пилинг Джесснера</span>
+              <span class="services__item-price">3 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Срединный пилинг ТСА 15–25%</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг PRX-T33</span>
+              <span class="services__item-price">4 200&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг BIOT-2</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг BioRePeel CL3</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Желтый пилинг 3-RETISES CT «Mediderma»</span>
+              <span class="services__item-price">4 200&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Пилинг «PeachPeel»</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-22">
+          <h3 class="services__panel-title">Удаление гиперпигментации (IPL-система) Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Одно пятно (до 4 см)</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Верхняя треть</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Средняя треть</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Нижняя треть</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Декольте + плечи</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Все лицо</span>
+              <span class="services__item-price">14 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-23">
+          <h3 class="services__panel-title">Химическая липоредукция</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">«Стройное лицо» 0,5 мл</span>
+              <span class="services__item-price">4 500&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Стройное лицо» 1 мл</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Стройное лицо» 2 мл</span>
+              <span class="services__item-price">13 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Стройное лицо» 4 мл</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Стройное тело» 2 мл</span>
+              <span class="services__item-price">13 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Стройное тело» 4 мл</span>
+              <span class="services__item-price">20 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">«Стройное тело» 6 мл</span>
+              <span class="services__item-price">25 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-24">
+          <h3 class="services__panel-title">Плазмотерапия</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Plasmolifting (1 пробирка)</span>
+              <span class="services__item-price">5 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Plasmolifting (2 пробирки)</span>
+              <span class="services__item-price">8 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Плазмотерапия лица</span>
+              <span class="services__item-price">5 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Плазмотерапия волосистой части головы</span>
+              <span class="services__item-price">5 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-25">
+          <h3 class="services__panel-title">Лазерный пилинг CO2 Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">Лицо</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Шея</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Зона декольте</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Лицо + шея + декольте</span>
+              <span class="services__item-price">24 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+        <article class="services__panel" data-category="cat-26">
+          <h3 class="services__panel-title">Лазерное удаление папиллом CO2 Capello</h3>
+          <ul class="services__items">
+            <li class="services__item">
+              <span class="services__item-name">1 элемент</span>
+              <span class="services__item-price">1 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">До 5 элементов</span>
+              <span class="services__item-price">4 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">От 5 до 10 элементов</span>
+              <span class="services__item-price">6 000&nbsp;₽</span>
+            </li>
+            <li class="services__item">
+              <span class="services__item-name">Более 10 элементов</span>
+              <span class="services__item-price">10 000&nbsp;₽</span>
+            </li>
+          </ul>
+        </article>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ещё заглушки -->
+  <section class="placeholder">[ Мы знаем, что беспокоит наших пациентов ]</section>
+  <section class="placeholder">[ Наша команда ]</section>
+  <section class="placeholder">[ Оборудование ]</section>
+  <section class="placeholder">[ Бренды ]</section>
+  <section class="placeholder">[ Контакты ]</section>
+  <footer class="placeholder placeholder--dark">[ Подвал сайта ]</footer>
+
+  <!-- Логика блока «Услуги» -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
