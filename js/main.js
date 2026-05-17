@@ -11,6 +11,50 @@
 
     document.documentElement.classList.remove('no-js');
 
+    // -------- Бургер-меню (мобила) --------
+    function initBurger() {
+        var btn = document.querySelector('[data-burger]');
+        var nav = document.getElementById('site-nav');
+        if (!btn || !nav) return;
+
+        function setOpen(open) {
+            document.body.classList.toggle('is-menu-open', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+        }
+
+        btn.addEventListener('click', function () {
+            var open = !document.body.classList.contains('is-menu-open');
+            setOpen(open);
+        });
+
+        // Клик по ссылке внутри nav → закрываем
+        Array.prototype.forEach.call(nav.querySelectorAll('a'), function (a) {
+            a.addEventListener('click', function () { setOpen(false); });
+        });
+
+        // Клик по backdrop (фону вне меню) → закрываем
+        document.addEventListener('click', function (e) {
+            if (!document.body.classList.contains('is-menu-open')) return;
+            if (nav.contains(e.target) || btn.contains(e.target)) return;
+            setOpen(false);
+        });
+
+        // ESC закрывает
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && document.body.classList.contains('is-menu-open')) {
+                setOpen(false);
+            }
+        });
+
+        // При ресайзе на десктоп закрываем
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768 && document.body.classList.contains('is-menu-open')) {
+                setOpen(false);
+            }
+        });
+    }
+
     // -------- Сворачиваемый блок (универсальный) --------
     function initCollapsible(wrapper) {
         var body   = wrapper.querySelector('[data-collapsible-body]');
@@ -487,6 +531,8 @@
     }
 
     function initAll() {
+        initBurger();
+
         var collapsibles = document.querySelectorAll('[data-collapsible]');
         Array.prototype.forEach.call(collapsibles, initCollapsible);
 

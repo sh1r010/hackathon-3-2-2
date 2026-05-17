@@ -86,6 +86,41 @@ ul { list-style: none; padding: 0; margin: 0; }
     position: relative;
     background: #fff;
     border-bottom: 1px solid rgba(0,0,0,.05);
+    z-index: 100;
+}
+
+/* ── Бургер-кнопка (только мобила) ─────────────────────── */
+.site-header__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    gap: 5px;
+}
+.site-header__burger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition: transform .3s var(--ease), opacity .25s var(--ease);
+}
+/* Анимация в «X» */
+.is-menu-open .site-header__burger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.is-menu-open .site-header__burger-line:nth-child(2) {
+    opacity: 0;
+}
+.is-menu-open .site-header__burger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 .site-header__inner {
     display: flex;
@@ -1463,7 +1498,7 @@ ul { list-style: none; padding: 0; margin: 0; }
     color: #5a4a33;
     background: transparent;
     border: 1px solid #C8B89E;
-    border-radius: 2px;
+    border-radius: 8px;
     cursor: pointer;
     transition:
         background-color .3s var(--ease),
@@ -1608,8 +1643,11 @@ ul { list-style: none; padding: 0; margin: 0; }
 .doctors__arrow--prev { left: 0; }
 .doctors__arrow--next { right: 0; }
 
-/* Карточка — фото фоном на всю карточку, текст оверлеем снизу.
-   На hover плавный зум фото с overflow:hidden, как в оригинале. */
+/* Карточка врача:
+   ДЕСКТОП (≥1025px) — фото на всю карточку, имя/специализация ОВЕРЛЕЕМ снизу
+                       (плавный белый градиент для читаемости).
+   ПЛАНШЕТ + МОБИЛА (≤1024px) — фото сверху, имя/специализация ПОД фото.
+   Hover-zoom фото на всех ширинах. */
 .doctors__card {
     position: relative;
     aspect-ratio: 360 / 550;
@@ -1617,39 +1655,54 @@ ul { list-style: none; padding: 0; margin: 0; }
     background: #f2f2f2;
     cursor: default;
 }
+.doctors__card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
 .doctors__card-media {
     position: absolute;
     inset: 0;
-    transition: transform .5s ease;
+    overflow: hidden;
 }
 .doctors__card-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform .5s ease;
 }
-
-/* Hover-zoom — лёгкий масштаб фото, фон карточки обрезает выход за края */
-.doctors__card:hover .doctors__card-media {
+.doctors__card:hover .doctors__card-media img,
+.doctors__card-link:hover .doctors__card-media img {
     transform: scale(1.05);
 }
 
-/* Текст-оверлей снизу карточки */
+/* Текст-оверлей снизу карточки с белым градиентом для читаемости */
 .doctors__card-info {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 20px 40px 24px;
+    padding: 80px 24px 24px;
     z-index: 2;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.95)
+    );
+    pointer-events: none;
 }
 
 .doctors__card-name {
     font-family: var(--font-serif);
     font-weight: 600;
-    font-size: 22px;
-    line-height: 29.7px;
+    font-size: 21px;
+    line-height: 1.25;
     color: #000;
     margin: 0 0 4px;
 }
@@ -1657,10 +1710,42 @@ ul { list-style: none; padding: 0; margin: 0; }
 .doctors__card-role {
     font-family: var(--font-serif);
     font-weight: 300;
-    font-size: 18px;
-    line-height: 27.9px;
-    color: #000;
+    font-size: 17px;
+    line-height: 1.35;
+    color: rgba(0,0,0,.78);
     margin: 0;
+}
+
+/* ── ПЛАНШЕТ + МОБИЛА: фото сверху, текст под ним ── */
+@media (max-width: 1024px) {
+    .doctors__card {
+        aspect-ratio: auto;
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        overflow: visible;
+    }
+    .doctors__card-link {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        position: static;
+    }
+    .doctors__card-media {
+        position: relative;
+        inset: auto;
+        aspect-ratio: 360 / 480;
+        overflow: hidden;
+        background: #f2f2f2;
+    }
+    .doctors__card-info {
+        position: static;
+        background: transparent;
+        padding: 14px 4px 0;
+        pointer-events: auto;
+    }
+    .doctors__card-name { font-size: 19px; }
+    .doctors__card-role { font-size: 15px; }
 }
 
 /* Индикаторы-точки под слайдером */
@@ -1833,7 +1918,7 @@ ul { list-style: none; padding: 0; margin: 0; }
    ============================================================ */
 
 .doctor-page {
-    padding: 150px 0 75px;
+    padding: 40px 0 75px;
     background: #fff;
 }
 
@@ -1932,13 +2017,15 @@ ul { list-style: none; padding: 0; margin: 0; }
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 36px;
+    margin-top: 0;
+    margin-bottom: 28px;
     padding: 10px 20px;
     font-family: var(--font-body);
     font-size: 13px;
     color: #2c2a29;
     background: #fff;
     border: 1px solid #c8a079;
+    border-radius: 8px;
     text-decoration: none;
     transition: background-color .25s var(--ease), color .25s var(--ease);
 }
@@ -1978,7 +2065,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 .doctor-page__cert:hover { transform: scale(1.02); }
 
 @media (max-width: 1024px) {
-    .doctor-page { padding: 110px 0 60px; }
+    .doctor-page { padding: 32px 0 60px; }
     .doctor-page__hero { grid-template-columns: 280px 1fr; }
     .doctor-page__photo { width: 280px; }
     .doctor-page__info { padding: 40px 36px; }
@@ -1986,12 +2073,13 @@ ul { list-style: none; padding: 0; margin: 0; }
     .doctor-page__certs-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
-    .doctor-page { padding: 90px 0 48px; }
+    .doctor-page { padding: 24px 0 48px; }
     .doctor-page__hero { grid-template-columns: 1fr; gap: 0; }
     .doctor-page__photo { width: 100%; aspect-ratio: 4 / 5; }
     .doctor-page__info { padding: 32px 24px; }
     .doctor-page__certs-grid { grid-template-columns: repeat(2, 1fr); }
     .doctor-page__certs-title { font-size: 22px; }
+    .doctor-page__back { margin-bottom: 20px; }
 }
 
 /* ============================================================
@@ -2169,9 +2257,69 @@ ul { list-style: none; padding: 0; margin: 0; }
 @media (max-width: 1024px) {
     .site-header__inner { height: 80px; }
     .site-header__access span { display: none; }
-    .site-header__nav { gap: 18px; }
-    .site-header__nav a { font-size: 15px; }
     .site-header__phone { font-size: 16px; }
+
+    /* Бургер виден на планшете и мобиле */
+    .site-header__burger { display: inline-flex; }
+
+    /* Меню превращается в drawer: выезжает справа, fullscreen */
+    .site-header__nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 80%;
+        max-width: 320px;
+        background: #fff;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 80px 32px 32px;
+        box-shadow: -8px 0 24px rgba(0,0,0,.15);
+        transform: translateX(100%);
+        transition: transform .35s var(--ease);
+        z-index: 150;
+        overflow-y: auto;
+    }
+    .site-header__nav a {
+        display: block;
+        padding: 16px 0;
+        font-size: 20px;
+        font-family: var(--font-serif);
+        font-weight: 600;
+        color: #1a1a1a;
+        border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    .site-header__nav a:last-child { border-bottom: none; }
+    .is-menu-open .site-header__nav {
+        transform: translateX(0);
+    }
+
+    /* Backdrop — ниже хедера (z-index 90), чтобы X-кнопка кликалась. */
+    body.is-menu-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,.25);
+        z-index: 90;
+        animation: backdropIn .3s var(--ease);
+    }
+    @keyframes backdropIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    body.is-menu-open .site-header {
+        z-index: 200;
+        position: relative;
+    }
+    body.is-menu-open .site-header__burger {
+        position: relative;
+        z-index: 220;
+    }
+
+    body.is-menu-open { overflow: hidden; }
 
     .equipment { padding: 56px 0 24px; }
     .equipment__title { font-size: 36px; }
@@ -2187,8 +2335,6 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 @media (max-width: 768px) {
     .site-header__inner { height: 64px; padding: 0 14px; gap: 10px; }
-    .site-header__access span { display: none; }
-    .site-header__nav { display: none; }
     .site-header__phone { font-size: 15px; }
     .site-header__address { font-size: 11px; }
 
