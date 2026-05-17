@@ -83,9 +83,7 @@ ul { list-style: none; padding: 0; margin: 0; }
    ХЕДЕР — фиксированный верх 1:1 с s7-kursk.ru
    ============================================================ */
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    position: relative;
     background: #fff;
     border-bottom: 1px solid rgba(0,0,0,.05);
 }
